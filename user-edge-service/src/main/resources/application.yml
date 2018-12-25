@@ -1,0 +1,10 @@
+server:
+  port: 8081
+  name: user-edge-service
+thrift:
+  user:
+    ip: localhost
+    port: 7911
+  message:
+    ip: localhost
+    port: 7912
