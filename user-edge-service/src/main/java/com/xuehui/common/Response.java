@@ -29,10 +29,22 @@ public class Response<T> implements Serializable {
         return response;
     }
 
-    public static <T> Response serviceFail(String msg){
+    public static <T> Response ok(){
+        Response response = new Response("200", "处理成功", null);
+        return response;
+    }
+
+    public static Response serviceFail(String msg){
         Response response = new Response();
         response.setMsg(msg);
         response.setCode("500");
+        return response;
+    }
+
+    public static Response exception(Exception e){
+        Response response = new Response();
+        response.setCode("9999");
+        response.setMsg(e.getMessage());
         return response;
     }
 

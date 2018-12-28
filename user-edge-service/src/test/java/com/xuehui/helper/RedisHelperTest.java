@@ -6,7 +6,7 @@
  */
 package com.xuehui.helper;
 
-import com.xuehui.UserThriftServiceApp;
+import com.xuehui.UserEdgeServiceApplication;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,7 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @DESC    【redis工具类的测试类】
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = UserThriftServiceApp.class)
+@SpringBootTest(classes = UserEdgeServiceApplication.class)
 public class RedisHelperTest {
 
     @Autowired

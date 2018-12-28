@@ -6,11 +6,21 @@
  */
 package com.xuehui.common;
 
+import lombok.Builder;
+import lombok.Data;
+
 /**
  * @DATE 2018-12-28 10:54
  * @PRO_NAME microservice
  * @AUTHOR wangxh
  * @DESC    【功能说明】
  */
-public class LoginResponse {
+@Data
+@Builder
+public class LoginResponse extends Response{
+    private String token;
+
+    public static Response LOGIN_SUCCESS(String token){
+        return LoginResponse.builder().token(token).build();
+    }
 }

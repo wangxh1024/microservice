@@ -7,6 +7,7 @@
 package com.xuehui.dubbo.dto;
 
 import com.xuehui.dto.UserDTO;
+import lombok.Data;
 
 /**
  * @DATE 2018-12-28 14:08
@@ -14,5 +15,11 @@ import com.xuehui.dto.UserDTO;
  * @AUTHOR wangxh
  * @DESC    【功能说明】
  */
-public class Course extends UserDTO {
+@Data
+public class CourseDTO extends UserDTO {
+
+    private String stars;
+
+    private String desc;
+
 }

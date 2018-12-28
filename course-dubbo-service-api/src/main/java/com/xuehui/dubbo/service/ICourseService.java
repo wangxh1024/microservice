@@ -6,11 +6,18 @@
  */
 package com.xuehui.dubbo.service;
 
+import com.xuehui.dubbo.dto.CourseDTO;
+
+import java.util.List;
+
 /**
  * @DATE 2018-12-28 14:07
  * @PRO_NAME microservice
  * @AUTHOR wangxh
  * @DESC    【功能说明】
  */
-public class ICourseService {
+public interface ICourseService {
+
+    List<CourseDTO> couseList();
+
 }

@@ -6,11 +6,33 @@
  */
 package com.xuehui.dto;
 
+import lombok.*;
+
+import java.io.Serializable;
+
 /**
  * @DATE 2018-12-27 22:15
  * @PRO_NAME microservice
  * @AUTHOR wangxh
  * @DESC    【功能说明】
  */
-public class UserDto {
+@Data
+@Builder
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserDTO implements Serializable {
+
+    private Long id;
+
+    private String username;
+
+    private String password;
+
+    private String realName;
+
+    private String mobile;
+
+    private String email;
+
 }

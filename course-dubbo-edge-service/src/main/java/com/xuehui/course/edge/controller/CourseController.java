@@ -7,11 +7,18 @@
 package com.xuehui.course.edge.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.xuehui.dto.UserDTO;
+import com.xuehui.dubbo.dto.CourseDTO;
 import com.xuehui.dubbo.service.ICourseService;
+import org.apache.http.HttpRequest;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -29,8 +36,16 @@ public class CourseController {
 
     @RequestMapping("/list")
     @ResponseBody
-    private List courseList(){
-        return courseService.couseList();
+    private CourseDTO courseList(ServletRequest httpRequest){
+        HttpServletRequest request = (HttpServletRequest)httpRequest;
+        UserDTO user = (UserDTO)request.getAttribute("user");
+        List<CourseDTO> list = courseService.couseList();
+        CourseDTO course = null;
+        if(!CollectionUtils.isEmpty(list)){
+            course = list.get(0);
+            BeanUtils.copyProperties(user, course);
+        }
+        return course;
     }
 
 }

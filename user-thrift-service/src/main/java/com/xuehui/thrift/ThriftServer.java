@@ -27,7 +27,7 @@ public class ThriftServer {
     @Autowired
     private UserService.Iface userService;
 
-//    @PostConstruct
+    @PostConstruct
     public void start(){
         TProcessor processor = new UserService.Processor(userService);
         TNonblockingServerSocket socket = null;

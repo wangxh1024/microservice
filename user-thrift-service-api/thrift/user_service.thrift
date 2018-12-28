@@ -1,7 +1,7 @@
 namespace java com.xuehui.thrift.user
 
 struct UserInfo{
-    1:i32 id,
+    1:i64 id,
     2:string username,
     3:string password,
     4:string realName,
