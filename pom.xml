@@ -16,5 +16,6 @@
         <module>user-edge-service</module>
         <module>user-edge-service-client</module>
         <module>course-dubbo-service-api</module>
+        <module>course-dubbo-edge-service</module>
     </modules>
 </project>
