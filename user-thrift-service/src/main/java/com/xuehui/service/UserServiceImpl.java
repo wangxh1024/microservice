@@ -1,5 +1,6 @@
 package com.xuehui.service;
 
+import com.xuehui.dto.UserDTO;
 import com.xuehui.mapper.UserMapper;
 import com.xuehui.thrift.user.UserInfo;
 import com.xuehui.thrift.user.UserService;
@@ -22,22 +23,22 @@ public class UserServiceImpl implements UserService.Iface {
     private UserMapper userMapper;
 
     public UserInfo getUserById(int id) throws TException {
-        com.xuehui.model.UserInfo user = userMapper.getUserById(id);
+        UserDTO dto = userMapper.getUserById(id);
         UserInfo info = new UserInfo();
-        BeanUtils.copyProperties(user, info);
+        BeanUtils.copyProperties(dto, info);
         return info;
     }
 
     public UserInfo getUserByName(String username) throws TException {
-        com.xuehui.model.UserInfo user = userMapper.getUserByName(username);
+        UserDTO dto = userMapper.getUserByName(username);
         UserInfo info = new UserInfo();
-        BeanUtils.copyProperties(user, info);
+        BeanUtils.copyProperties(dto, info);
         return info;
     }
 
     public void registe(UserInfo userInfo) throws TException {
-        com.xuehui.model.UserInfo info = new com.xuehui.model.UserInfo();
-        BeanUtils.copyProperties(userInfo, info);
-        userMapper.regist(info);
+        UserDTO dto = UserDTO.builder().build();
+        BeanUtils.copyProperties(userInfo, dto);
+        userMapper.regist(dto);
     }
 }

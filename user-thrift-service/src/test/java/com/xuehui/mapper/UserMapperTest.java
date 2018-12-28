@@ -1,9 +1,11 @@
 package com.xuehui.mapper;
 
 import com.xuehui.UserThriftServiceApp;
-import com.xuehui.model.UserInfo;
+import com.xuehui.dto.UserDTO;
+import com.xuehui.thrift.user.UserInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -22,26 +24,28 @@ public class UserMapperTest {
 
     @Test
     public void regist(){
-        UserInfo info = UserInfo.builder()
+        UserDTO dto = UserDTO.builder()
                 .username("zhangsan")
                 .password("123456")
                 .email("xxx@163.com")
                 .mobile("1333333333")
                 .realName("张三")
                 .build();
-        userMapper.regist(info);
+        userMapper.regist(dto);
     }
 
     @Test
     public void getUserById(){
-        UserInfo user = userMapper.getUserById(1);
-        System.out.println(user);
+        UserDTO dto = userMapper.getUserById(2);
+        System.out.println(dto);
     }
 
     @Test
     public void getUserByName(){
-        UserInfo user = userMapper.getUserByName("zhangsan");
-        System.out.println(user);
+        UserDTO dto = userMapper.getUserByName("zhangsan");
+        UserInfo info = new UserInfo();
+        BeanUtils.copyProperties(dto, info);
+        System.out.println(dto);
     }
 
 }
