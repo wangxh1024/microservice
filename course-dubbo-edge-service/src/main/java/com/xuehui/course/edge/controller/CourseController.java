@@ -31,7 +31,7 @@ import java.util.List;
 @RequestMapping("/course")
 public class CourseController {
 
-    @Reference
+    @Reference(check = false)
     private ICourseService courseService;
 
     @RequestMapping("/list")

@@ -3,4 +3,4 @@ spring:
     name: course-dubbo-service
   dubbo:
     server: true
-    registry: zookeeper://localhost:2181
+    registry: zookeeper://${zookeeper.address}:2181

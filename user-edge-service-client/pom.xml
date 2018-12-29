@@ -41,13 +41,6 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.47</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.codehaus</groupId>
-            <artifactId>codehaus-parent</artifactId>
-            <version>4</version>
-            <!--<type>pom</type>-->
-        </dependency>
     </dependencies>
 
 

@@ -1,10 +1,10 @@
 server:
-  port: 8080
+  port: 8888
 zuul:
   routes:
     course:
       path: /course/**
-      url: http://localhost:8082/course/
+      url: http://course-dubbo-edge-service:8084/course/
     user:
       path: /user/**
-      url: http://localhost:8081/user/
+      url: http://user-edge-service:8083/user/

@@ -1,8 +1,8 @@
-FROM openjdk:7-jre
+FROM openjdk:8-jre
 
 MAINTAINER wangxh m13656657690@163.com
 
-COPY target/user-thrift-service-2.1.0.RELEASE.jar /user-thrift-service.jar
+COPY target/user-thrift-service-1.0.jar /user-thrift-service.jar
 
 ENTRYPOINT ["java", "-jar", "/user-thrift-service.jar"]
 

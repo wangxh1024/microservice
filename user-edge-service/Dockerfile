@@ -1,4 +1,4 @@
-FROM openjdk:7-jre
+FROM openjdk:8-jre
 
 MAINTAINER wangxh m13656657690@163.com
 

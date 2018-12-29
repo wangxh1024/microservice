@@ -1,10 +1,15 @@
 server:
-  port: 8081
+  port: 8083
   name: user-edge-service
 thrift:
   user:
-    ip: localhost
-    port: 7911
+    ip: user-thrift-service
+    port: 8082
   message:
-    ip: localhost
-    port: 7912
+    ip: message-thrift-python-service
+    port: 8081
+spring:
+  redis:
+    host: ${redis.address}
+    port: 6379
+    timeout: 3000
