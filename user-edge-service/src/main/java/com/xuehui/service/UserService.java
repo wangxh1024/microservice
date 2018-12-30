@@ -1,4 +1,4 @@
-package com.xuehui.common;
+package com.xuehui.service;
 
 import com.xuehui.thrift.ServiceProvider;
 import com.xuehui.thrift.user.UserInfo;
@@ -13,6 +13,7 @@ public class UserService {
     private ServiceProvider serviceProvider;
 
     public UserInfo getUserByName(String username) throws TException {
+        System.out.println("serviceProvider:" + serviceProvider);
         return serviceProvider.getUserService().getUserByName(username);
     }
 

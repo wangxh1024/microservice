@@ -1,6 +1,6 @@
 service:
   name: user-thrift-service
-  port: 8082
+  port: 8889
 # 数据库配置
 spring:
   datasource:

@@ -2,7 +2,7 @@ package com.xuehui.controller;
 
 import com.xuehui.common.LoginResponse;
 import com.xuehui.common.Response;
-import com.xuehui.common.UserService;
+import com.xuehui.service.UserService;
 import com.xuehui.dto.UserDTO;
 import com.xuehui.helper.RedisHelper;
 import com.xuehui.service.MsgService;
@@ -47,6 +47,7 @@ public class UserController {
             return Response.serviceFail("用户名或密码为空");
         }
         try {
+            System.out.println("调用开始");
             UserInfo user = userService.getUserByName(username);
             if(Objects.isNull(user)){
                 return Response.serviceFail("该用户不存在");

@@ -4,9 +4,9 @@ server:
 thrift:
   user:
     ip: user-thrift-service
-    port: 8082
+    port: 8889
   message:
-    ip: message-thrift-python-service
+    ip: message-service
     port: 8081
 spring:
   redis:

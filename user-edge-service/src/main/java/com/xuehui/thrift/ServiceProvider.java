@@ -37,6 +37,7 @@ public class ServiceProvider {
     private int thriftMessagePort;
 
     public UserService.Client getUserService(){
+        System.out.println("thriftUserIp:" + thriftUserIp + "    thriftUserPort:" + thriftUserPort);
         return getService(thriftUserIp, thriftUserPort, ServiceType.USER);
     }
 
@@ -49,7 +50,9 @@ public class ServiceProvider {
         TTransport transport = new TFramedTransport(socket);
         try {
             transport.open();
+            System.out.println("启动成功");
         } catch (TTransportException e) {
+            System.out.println("启动失败");
             return null;
         }
         TBinaryProtocol protocol = new TBinaryProtocol(transport);

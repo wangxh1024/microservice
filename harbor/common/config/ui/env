@@ -1,0 +1,5 @@
+LOG_LEVEL=debug
+CONFIG_PATH=/etc/ui/app.conf
+UI_SECRET=tgUO22R7naXh0gce
+JOBSERVICE_SECRET=v6iXjBsQGLrgftZ4
+GODEBUG=netdns=cgo

@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  message-service:
+    image: message-thrift-python-service:latest
+
+  user-thrift-service:
+    image: user-thrift-service:latest
+    command:
+    - "--mysql.address=192.168.0.101"
+
+  user-edge-service:
+    image: user-edge-service:latest
+    links:
+    - message-service
+    - user-thrift-service
+    command:
+    - "--redis.address=192.168.0.101"
+
+  course-dubbo-service:
+    image: course-dubbo-service:latest
+    command:
+    - "--zookeeper.address=192.168.0.101"
+
+  course-dubbo-edge-service:
+    image: course-dubbo-edge-service:latest
+    links:
+    - user-edge-service
+    - user-thrift-service
+    command:
+    - "--zookeeper.address=192.168.0.101"
+
+  api-gateway-zuul:
+    image: api-gateway-zuul:latest
+    links:
+    - user-edge-service
+    - course-dubbo-edge-service
+    ports:
+    - 8888:8888
